@@ -44,7 +44,7 @@ app.controller('videoHistoryController',['$scope','$http',function($scope,$http)
 			"title":video.title,
 			"name":video.name,
 			"startTime":start,
-			"playTime":playerTime+" seconds"
+			"playTime":playerTime
 		}
 			$http.post('/vodapp',userData).then(function(response){
 				//console.log(response);
@@ -54,10 +54,13 @@ app.controller('videoHistoryController',['$scope','$http',function($scope,$http)
 	}
 
 	var playTime=function(from,to){
-		var now =  moment.utc(to,"HH:mm:ss");
-		var start = moment.utc(from,"HH:mm:ss");
-		var difference=(moment.duration(now.diff(start)))/1000;
-		var playtme= moment.utc(difference,"HH:mm:ss");
-		return(difference);
+	  	var now =  moment.utc(to,"HH:mm:ss");
+	  	var start = moment.utc(from,"HH:mm:ss");
+	  	var difference=(moment.duration(now.diff(start)))/1000;
+      var seconds = difference % 60;
+    	var minutes = Math.floor(difference % 3600 / 60);
+    	var hours = Math.floor(difference / 3600);
+    	var time=hours+":"+minutes+":"+seconds;
+		return(time);
 	}
 }]);

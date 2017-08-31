@@ -1,4 +1,3 @@
-
 app.factory('DataService', [ '$http', function( $http ) {
 	return{
 		videos:function(){

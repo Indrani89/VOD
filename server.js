@@ -29,8 +29,8 @@ app.post('/vodapp',function(req,res){
 //to get stored history details from DB according to video play time sorted order
 app.get('/vodapp/:user_key',function(req,res){
 	    var user_keys=req.params.user_key;
-		db.vodapp.find().sort({startTime:-1}).toArray(function(err,docs){
-		res.json(docs);
+	  	db.vodapp.find().sort({_id:-1}).toArray(function(err,docs){
+	  	res.json(docs);
 	});
 });
 
