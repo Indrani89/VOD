@@ -1,0 +1,17 @@
+
+<div ng-controller="videoController" >
+	<div class="row" ng-init="init()">
+        <div id="slide-container">
+            <div ng-repeat="video in params.videos" track-by="video.id" ng-attr-id="{{ 'vid_' + video.id}}" ng-model="video" class="thumbnail {{video.selectedClass}}" ng-click="selectVideo()" >
+                <img src="{{video.imgUrl}}" alt="..."/>
+                <div class="caption">{{video.title}}
+                    <p><a href="#" class="btn btn-primary" ng-click="play()">
+                            <i class="fa fa-play" aria-hidden="true"></i>  
+                                Play
+                        </a>
+                    </p>
+                </div>
+            </div>  
+        </div>
+    </div>
+</div>

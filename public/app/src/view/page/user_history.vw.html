@@ -1,0 +1,27 @@
+<div ng-controller="videoHistoryController" id="video-history-modal">
+    <div class="row" ng-init="init()">
+      <h2> Click History button to view Previously watched videos </h2>
+        <div id="slide-container-history">
+            <u1 class="timeline-history">
+              <div ng-if="params.userVideos.length > 0">
+                   <div ng-repeat="video in params.userVideos" track-by="video.id" ng-attr-id="{{ 'vid_' + video.id}}" ng-model="video" class="thumbnailHistory{{video.selectedClass}}" ng-click="selectVideo()" >
+                      <div class="timeline-history-body">
+                          <span class="hisotry-title"># {{video.title}}<br></span>
+                          <span class="history-playTime"> {{video.playTime}}<br> </span>
+                          <span class="history-img"> <img src="{{video.imgUrl}}" alt="..." class="history-img"/></span>
+                          <p><a href="#" class="btn btn-play btn-warning" ng-click="playVideo()">
+                                <i class="fa fa-repeat" aria-hidden="true"></i> 
+                                  Replay
+                             </a>
+                          </p>
+                          <span class="history-startTime"> {{video.startTime}} <br> </span>
+                      </div>
+                    </div>                  
+              </div>  
+              <div ng-if="params.userVideos.length == 0">
+                    <h4 style="color:blue;">There is no watched video</h4>
+              </div>
+            </u1>      
+        </div>
+    </div>
+</div>

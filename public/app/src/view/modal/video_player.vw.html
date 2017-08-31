@@ -1,0 +1,19 @@
+
+<div class="modal fade" id="video-player-modal" ng-controller="videoPlayerController" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog full-screen">
+        <div class="modal-content" ng-init="init()">
+            <div class="modal-header" style="border-bottom:0px;">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="backToMain();">&times;</button>
+                <h4 class="modal-title" id="myModalLabel" style="color:white">{{params.video.title}}</h4>
+            </div>
+            <div class="modal-body">
+               <video class="model-video" controls="" autoplay="" name="media"><source src="" type="video/mp4"></video>
+            </div>
+            <span>
+                <a class="btn btn-warning" href="#" ng-click="backToHome()">
+                    <i class="fa fa-home" aria-hidden="true"></i> Back
+                </a>
+            </span>
+        </div>
+    </div>
+</div>
